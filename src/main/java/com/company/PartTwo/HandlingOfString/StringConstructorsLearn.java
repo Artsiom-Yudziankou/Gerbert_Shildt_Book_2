@@ -1,4 +1,4 @@
-package com.company.PartTwo.HandlingOfString.StringConstructorsLearn;
+package com.company.PartTwo.HandlingOfString;
 
 public class StringConstructorsLearn {
     public static void main(String[] args) {
