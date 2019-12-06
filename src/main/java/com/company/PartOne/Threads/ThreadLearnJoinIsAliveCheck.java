@@ -1,5 +1,7 @@
 package com.company.PartOne.Threads;
 
+import java.awt.*;
+
 public class ThreadLearnJoinIsAliveCheck implements Runnable {
 
     String threadName;

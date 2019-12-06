@@ -1,0 +1,365 @@
+//----------------------------------------------------------------------------------------------------------------------
+//                                              Collection Interface
+//----------------------------------------------------------------------------------------------------------------------
+// 3. Methods
+//-------------------------------------
+//
+// boolean add(E object)                                    - method adds the object to collection. Returns true if
+//                                                            successful.
+// boolean addAll(Collection<? extends E> collection)       - method add all elements of collection to calling collection.
+//                                                            returns true if successful.
+// void clear()                                             - method removes all elements in calling collection.
+// boolean contains(Object object)                          - method returns true in case the object is in calling collection.
+// boolean containsAll(Collection<?> collection)            - method returns true if all elements from collection is in calling one.
+// boolean equals(Object object)                            - method returns true if object and calling collection are equal.
+// int hashCode()                                           - method returns the hashCode.
+// boolean isEmpty()                                        - method returns true in case the calling collection is empty.
+// Iterator<E> iterator()                                   - returns iterator for calling collection.
+// default Stream<E> parallelStream()                       - returns the thread that uses calling collection as the source
+//                                                            of its elements. The parallel operations can be used.
+// boolean remove(Object object)                            - returns true in case the element was removed from collection.
+// boolean removeAll(Collection<?> collection)              - returns true in case the all elements were removed from collection.
+// default boolean removeIf(Predicate<? super E> pred)      - returns true elements according to pred were removed from collection.
+// boolean retainAll(Collection<?> collection)              - returns true if all elements, except elements from collection,
+//                                                            from calling collection were removed
+// int size()                                               - returns the amount of elements in collection.
+// default Spliterator<E> spliterator()                     - returns the spliterator for calling collection.
+// default Stream<E> stream()                               - returns the thread that uses the collection as the source.
+//                                                            The sequent operations can be produced.
+// Object[] toArray()                                       - returns array with all elements from collection.
+// <T> T[] toArray(T array[])                               - returns the array with all elements from collection.
+//                                                            if array has less size than collection - the new array will
+//                                                            be created, in calse more - free elements become null.
+//----------------------------------------------------------------------------------------------------------------------
+// Some exceptions can be triggered during these methods :
+// UnsupportedOperationException                            - if collection can not be edited.
+// ClassCastException                                       - if objects are not compatible in such cases like add(E object).
+// NullPointerException                                     - if null is added to collection where null can not be.
+// IllegalArgumentException                                 - if argument is illegal.
+// IllegalStateException                                    - if new element is added to collection with fixed size.
+//
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//                                              List Interface
+//----------------------------------------------------------------------------------------------------------------------
+// 3. Methods
+//-------------------------------------
+//
+// boolean add(int index, E object)                         - method adds the object to List to index position.
+//                                                            Returns true if successful.
+// boolean addAll(int index, Collection<? extends E> col)   - method inserts the elements at the specified index.
+// E get(int index)                                         - method returns the object of the list at index.
+// int indexOf(Object object)                               - method returns the index of first occurrence of object.
+//                                                            -1 if failed.
+// int lastIndexOf(Object object)                           - method returns the index of last occurrence of object.
+//                                                            -1 if failed.
+// ListIterator<E> listIterator()                           - method returns the iterator of list.
+// ListIterator<E> listIterator(int index)                  - method returns the iterator for sorting out the list from index.
+// E remove(int index)                                      - method removes the element and returns it.
+// default void replaceAll(UnaryOperator<E> opToApply)      - method updates each element with value from function opToApply.
+// E set(int index, E object)                               - method sets the element to position and returns the previous element.
+// default void sort(Comparator<? super E> comparator)      - method sorts the list using the rule comparator.
+// List<E> subList(int begin, int end)                      - method returns the subList that starts from begin and ends at end-1.
+//
+// static <Е> List<E> of (Е object )                       - method that returns the List with giving objects.
+// static <Е> List<E> of(E ... objects)
+//
+//----------------------------------------------------------------------------------------------------------------------
+// Some exceptions can be triggered during these methods :
+// UnsupportedOperationException                            - if collection can not be edited.
+// ClassCastException                                       - if objects are not compatible in such cases like add(E object).
+// NullPointerException                                     - if null is added to collection where null can not be.
+// IllegalArgumentException                                 - if argument is illegal.
+// IndexOutOfBoundsException                                - if illegal index.
+//
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//                                              SortedSet Interface
+//----------------------------------------------------------------------------------------------------------------------
+// 3. Methods
+//-------------------------------------
+//
+// Comparator<? super E> comparator()                       - method returns comparator of sorted set.
+// E first()                                                - method returns first element of calling SortedSet.
+// SortedSet<E> headSet(E end)                              - method returns Sorted set with elements that are before the end.
+// E last()                                                 - method returns the last element  of calling SortedSet.
+// Sorted<E> subSet(E begin, E end)                         - method returns SortedSet with elements from begin till end-1
+// SortedSet<E> tailSet(E begin)                            - method returns SortedSet with elements after begin
+//
+//----------------------------------------------------------------------------------------------------------------------
+// Some exceptions can be triggered during these methods :
+// UnsupportedOperationException                            - if collection can not be edited.
+// ClassCastException                                       - if objects are not compatible in such cases like add(E object).
+// NullPointerException                                     - if null is added to collection where null can not be.
+// IllegalArgumentException                                 - if argument is illegal.
+// IndexOutOfBoundsException                                - if illegal index.
+//
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//                                              NavigableSet Interface
+//----------------------------------------------------------------------------------------------------------------------
+// 3. Methods
+//-------------------------------------
+//
+// E ceiling(E object)                                      - method performs search of the min element according
+//                                                            to element >= object.
+// Iterator<E> descendingIterator()                         - method returns iterator, that sorts out from big to small.
+// NavigableSet<E> descendingSet()                          - method returns NavigableSet that is reversed.
+// E floor(E object)                                        - method performs search of the max element according
+//                                                            to element <= object.
+// NavigableSet<E> headSet(E topBoard, boolean include)     - method returns subNavigableSet with elements < topBoard.
+//                                                            If true - topBoard will be included.
+// E higher(E object)                                       - method performs search max element > object.
+// E lower(E object)                                        - method performs search min element < object.
+// E pollFirst()                                            - method returns the first element and removes it from collection
+// E pollLast()                                             - method returns the last element and removes it from collection.
+// NavigableSet<E> subset(E bottomBoard,
+//   boolean includeBottom, E topBoard, boolean includeTop) - method returns subSet with elements < topBoard and > bottomBoard.
+// NavigableSet<E> tailSet(E bottomBoard, boolean include)  - method returns subSet with elements > bottomBoard.
+//                                                            if true - includes bottomBoard.
+//
+//
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//                                              Queue Interface
+//----------------------------------------------------------------------------------------------------------------------
+// 3. Methods
+//-------------------------------------
+//
+// E element()                                              - method returns the element from the head. Returned element
+//                                                            will not be removed. In case the queue is empty - exception.
+// boolean offer(E object)                                  - method tries to add object to queue. true if success.
+// E peek()                                                 - method returns the element from the head. Returned element
+//                                                            will not be removed. In case the queue is empty - NO exception.
+// E poll()                                                 - method returns the element from the head and removes it.
+//                                                            In case the queue is empty - NO exception.
+// E remove()                                               - method returns the element from the head and removes it.
+//                                                            In case the queue is empty - exception.
+//
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//                                              Dequeue Interface
+//----------------------------------------------------------------------------------------------------------------------
+// 3. Methods
+//-------------------------------------
+//
+// void addFirst(E object)                                  - method adds the object to head of dequeue.
+// void addLast(E object)                                   - method adds the object to tail of dequeue.
+// Iterator<E> descendingIterator()                         - method returns the Iterator that sorts out like tail -> head.
+// E getFirst()                                             - method returns the head element. Returned element will not
+//                                                            be removed. If dequeue is empty - exception.
+// E getLast()                                              - method returns the tail element. Returned element will not
+//                                                            be removed. If dequeue is empty - exception.
+// boolean offerFirst(E object)                             - method tries to add the element as the head of dequeue.
+// boolean offerLast(E object)                              - method tries to add the element as the tail of dequeue.
+// E peekFirst()                                            - method returns the head element. Returned element will not
+//                                                            be removed. If dequeue is empty - NO exception.
+// E peekLast()                                             - method returns the tail element. Returned element will not
+//                                                            be removed. If dequeue is empty - NO exception.
+// E pollFirst()                                            - method returns head element and removes it.
+// E pollLast()                                             - method returns tail element and removes it.
+// E pop()                                                  - method returns head element and removes it. If dequeue is
+//                                                            empty - exception.
+// void push(E object)                                      - method adds the head element.
+// E removeFirst()                                          - method returns head element and removes it. If dequeue is
+//                                                            empty - exception.
+// boolean removeFirstOccurrence(Object object)             - method removes first occurrence of the element.
+// E removeLast()                                           - method returns head element and removes it. If dequeue is
+//                                                            empty - exception.
+// boolean removeLastOccurrence(Object object)              - method returns last occurrence of the element.
+//
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//                                              Iterator Interface
+//----------------------------------------------------------------------------------------------------------------------
+// 3. Methods
+//-------------------------------------
+//
+// default void forEachRemaining
+//                          (Consumer<? super E> action)    - method does the action for each element of the collection.
+// boolean hasNext()                                        - method returns true if the next element exists.
+// E next()                                                 - method returns next element of the collection.
+// void remove()                                            - method removes the current element.
+//
+//
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//                                              ListIterator Interface
+//----------------------------------------------------------------------------------------------------------------------
+// 3. Methods
+//-------------------------------------
+//
+// void add(E object)                                       - method adds the object before element of the next() method.
+// default void forEachRemaining
+//                          (Consumer<? super E> action)    - method does the action for each element of the collection.
+// boolean hasNext()                                        - method returns true if the next element exists.
+// boolean hasPrevious()                                    - method returns if the previous element exists.
+// E next()                                                 - method returns next element of the collection.
+// int nextIndex()                                          - method returns index of the next element of List.
+// E previous()                                             - method returns the previous element of collection.
+// int previousIndex()                                      - method returns the index of previous element of List.
+// void remove()                                            - method removes the element which is before the next() and previous().
+// void set(E object)                                       - method sets the object to current element of List.
+//
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//                                              Spliterator Interface
+//----------------------------------------------------------------------------------------------------------------------
+// 3. Methods
+//-------------------------------------
+//
+// int characteristics()                                    - method returns characteristics of calling spliterator.
+// long estimateSize()                                      - method returns the estimated amount of elements which is
+//                                                            need to sort out.
+// default void forEachRemaining
+//                         (Consumer<? super T> action)     - method does the action to all elements in collection.
+// default Comparator<? super T> getComparator()            - method returns the comparator that used by spliterator.
+// default long ExactSizeIfKnown()                          - method returns size of spliterator if known, else -1.
+// default boolean hasCharacteristics(int value)            - method checks if spliterator has characteristics.
+// boolean tryAdvance(Consumer<? super T> action)           - method does the action to next element.
+// Spliterator<T> trySplit()                                - method divides the spliterator to another one.
+//
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//                                              Map Interface
+//----------------------------------------------------------------------------------------------------------------------
+// 3. Methods
+//-------------------------------------
+//
+// default V compute(K k,
+//  BiFunction<? super K, ? super V, ? extends V> function) - method calls the function for building the new value,
+//                                                            replaces the value with this result.
+// default V conputeIfAbsent(K k, Function<? super K,
+//                                  ? extends V> function)  - method returns the value that is connected with 'k',
+//                                                            otherwise creates the new value.
+// default V computeIfPresent(K k,
+//  BiFunction<? super K, ? super V, ? extends V> function) - method checks if k exists, if true - the function will be
+//                                                            triggered for replacing old value with the new value.
+// void clear()                                             - method removes all couples of values from the Map.
+// boolean containsKey(Object k)                            - method checks if the key exists.
+// boolean containsValue(Object v)                          - method checks if the value exists.
+// Set<Map.Entry<K,V>> entrySet()                           - method returns Set with the data from map.
+// boolean equals(Object object)                            - method checks if object is type of Map.
+// default void forEach(BiConsumer<? super K,
+//                                      ? super V> action)  - method does the action for each element of Map.
+// V get(Object k)                                          - method returns value, connected with k.
+// default V getOrDefault(Object k, V defaultValue)         - method returns value, connected with k if exists, else default.
+// int hashCode()                                           - method returns the hashCode of calling Map.
+// boolean isEmpty()                                        - method returns checks if Map is empty.
+// Set<K> keySet()                                          - method returns Set of keys.
+// default V merge(K k, V v,
+//  BiFunction<? super V, ? super V, ? extends V> function) - if in calling Map k is omitted, the k-v is set and v is returned,
+//                                                            else function returns new v, checking the previous value and
+//                                                            key is updated for the access to its value.
+// static <K, V> Map<K,V> of(paramlist)                     - creates unchangeable Map with paramlist. Empty keys and values
+//                                                            are illegal.
+// static <K, V> Map<K, V> ofEntries
+//    (Map.Entry<? extends K, ? extends V> ... records)     - method returns unchangeable Map with records.
+// V put(K k, V v)                                          - method sets v to Map, replacing previous value, connected with k.
+//                                                            Returns null in case of omitted previous k, otherwise the previous value.
+// void putAll(Map<? extends K, ? extends V> map)           - method sets all records from map to calling Map.
+// default V putIfAbsent(K k, V v)                          - method sets k-v to Map if the k-v in Map is empty, in case
+//                                                            of success returns null, otherwise previous value.
+// V remove(Object k)                                       - method removes v according to k.
+// default boolean remove(Object k, Object v)               - method removes k-v. In case success - true, otherwise - false.
+// default boolean replace(K k, V previousValue, V new)     - method replaces v according to k with new value.
+// default V replace(K k, V v)                              - If the calling Map has k, method sets new v and returns previous value.
+// default void replaceAll
+// (BiFunction<? super K, ? super V, ? extends V> function) - method does function for each element in Map, replacing the element
+//                                                            with result of function.
+// int size()                                               - method returns the amount of k-v in calling Map.
+// Collection<V> values()                                   - method returns collection with values of Map.
+//
+//
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//                                              SortedMap Interface
+//----------------------------------------------------------------------------------------------------------------------
+// 3. Methods
+//-------------------------------------
+//
+// Comparator <? super K> comparator()                      - method returns comparator of calling sorted Map.
+// K firstKey()                                             - method returns the first key of Map(lowest).
+// SortedMap<K, V> headMap(K end)                           - method returns sorted Map with elements that have keys < end.
+// K lastKey()                                              - method returns the last key of Map(biggest).
+// SortedMap<K, V> subMap(K begin, K end)                   - method returns sorted Map with elements that have begin < keys < end.
+// SortedMap <K, V> tailMap(K begin)                        - method returns sorted Map with elements that have keys > begin.
+//
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//                                              NavigableMap Interface
+//----------------------------------------------------------------------------------------------------------------------
+// 3. Methods
+//-------------------------------------
+//
+// Map.Entry<K, V> ceilingEntry(K object)                   - method searches the lowest k that >= object.
+// K ceilingKey(K object)                                   - method searches the lowest k that >= object.
+// NavigableSet<K> descendingKeySet()                       - method returns NavigableSet with keys in descending.
+// NavigableMap<K, V> descendingMap()                       - method returns NavigableMap with descending calling Map.
+// Map.Entry<K, V> firstEntry()                             - method returns first record in Map.(k is the lowest).
+// Map.Entry<K, V> floorEntry(K object)                     - method searches the biggest k that <= object.
+// K floorKey(K object)                                     - method searches the biggest k that <= object.
+// NavigableMap<K, V> headMap(K topBoard, boolean include)  - method returns NavigableSet with all records where k < topBoard.
+//                                                            if true - with topBoard.
+// Map.Entry<K,V> higherEntry(K object)                     - method searches the biggest k that > object.
+// K higherKey(K object)                                    - method searches the biggest k that > object.
+// Map.Entry<K, V> lastEntry()                              - method returns the last record of Map. (k is the biggest).
+// Map.Entry<K, V> lowerEntry(K object)                     - method searches the biggest k that < object.
+// K lowerKey(K object)                                     - method searches the biggest k that < object.
+// NavigableSet<K> navigableKeySet()                        - method returns containing keys from calling Map.
+// Map.Entry<K, V> pollFirstEntry()                         - method returns first record of Map removing it from Map.
+// Map.Entry<K, V> pollLastEntry()                          - method returns last record of Map removing it from Map.
+// NavigableMap<K, V> subMap(K bottom, boolean includeBot,
+//                              K top, boolean includeTop)  - method returns NavigableMap from bottom till top.
+// NavigableMap<K, V> tailMap(K bottom, boolean include)    - method returns NavigableMap from bottom.
+//
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+//----------------------------------------------------------------------------------------------------------------------
+//                                              Map.Entry Interface
+//----------------------------------------------------------------------------------------------------------------------
+// 3. Methods
+//-------------------------------------
+//
+// boolean equals(Object object)                            - method checks if object is equal to k-v of Map.
+// K getKey()                                               - method returns the K of record.
+// V getValue()                                             - method returns the V of record.
+// int hashCode()                                           - method returns the hashCode of record.
+// V setValue(V v)                                          - method sets value V in record.
+//
+//----------------------------------------------------------------------------------------------------------------------

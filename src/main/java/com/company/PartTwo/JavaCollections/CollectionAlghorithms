@@ -1,0 +1,90 @@
+//----------------------------------------------------------------------------------------------------------------------
+//                                              Collection Alghoritms
+//----------------------------------------------------------------------------------------------------------------------
+// 3. Methods
+//-------------------------------------
+//
+// static <T> boolean addAll
+//     (Collection<? super T> collection, T... elements)    - inserts elements to collection.
+// static <T> Queue<T> asLifoQueue(Deque<T> collection)     - returns collections as stack.
+// static <T> int binarySearch
+//   (List<? Extends Comparable<? super T>> list, T value)  - does the search of value in sorted list.
+// static <T> int binarySearch(List<? extends T> list,
+//               T value, Comparator<? superT> comparator)  - does the search of value in list.
+// static <E> Collection<E> checkedCollection
+//                  (Collection<E> collection, Class<E> t)  - Returns a dynamically typesafe view of the specified collection.
+// static <E> List<E> checkedList(List<E> c, Class<E> t)    - Returns a dynamically typesafe view of the specified list.
+// static <K, V> Map<K, V> checkedMap(Map<K, V> collection,
+//                   Class<K> keyType, Class<V> valueType)  - Returns a dynamically typesafe view of the specified map.
+// static <K,V> NavigableMap<K, V> checkedNavigableMap
+//                (NavigableMap<K, V> nm, Class<K> keyType, - Returns a dynamically typesafe view of the specified
+//                                      Class<V> valueType)   Navigable map.
+// static <E> NavigableSet<E> checkedNavigableSet
+//                         (NavigableSet<E> ns, Class<E> t) - Returns a dynamically typesafe view of the specified
+//                                                            Navigable set.
+// static <E> Queue<E> checkedQueue(Queue<E> q, Class<E> t) - Returns a dynamically typesafe view of the specified queue.
+// static <E> Set<E> checkedSet(Set<E> c, Class<E> t)       - Returns a dynamically typesafe view of the specified set.
+// static <K, V> SortedMap<K, V> checkedSortedMap(
+// SortedMap<K, V> c, Class<K> keyType, Class<V> valueType) - Returns a dynamically typesafe view of the specified SortedMap.
+// static <E> SortedSet<E> checkedSortedSet
+//                             (SortedSet<E> c, Class<E> t) - Returns a dynamically typesafe view of the specified SortedSet.
+// static <T> void copy(List<? super T> list,
+//                                 List<? Extends T> list2) - Copies elements from list2 to list.
+// static boolean disjoint(Collection<?> a, Collection<?>b) - checks if elements of both collections are NOT equal.
+// static <T> Enumeration<T> emptyEnumeration()             - Returns empty Enumeration (without elements).
+// static <T> Iterator<T> emptyIterator()                   - Returns empty Iterator(without elements).
+// static <T> List<T> emptyList()                           - Returns unchangeable, empty list with type of interface List.
+// static <T> ListIterator<T> emptyListIterator()           - Returns empty list iterator. (without elements).
+// static <K, V> Map<K, V> emptyMap()                       - Returns unchangeable, empty map.
+// static <K, V> NavigableMap<K, V> emptyNavigableMap()     - Returns unchangeable, empty navigable map.
+// static <E> NavigableSet<E> emptyNavigableSet()           - Returns unchangeable, empty navigable set.
+// static <T> Set<T> emptySet()                             - Returns unchangeable, empty set.
+// static <K, V> SortedMap<K, V> emptySortedMap()           - Returns unchangeable, empty Sorted map.
+// static <E> SortedSet<E> emptySortedSet()                 - Returns unchangeable, empty Sorted set.
+// static <T> Enumeration<T> enumeration(Collection<T> c)   - Returns enumeration of elements from collection.
+// static <T> void fill(List<? super T> list, T object)     - sets the object to element of List.
+// static int frequency(Collection<?> c, Object object)     - counts the amount of the occurrence of object in collection.
+// static int indexOfSubList(List<?> list, List<?> sublist) - searches the first occurrence of sublist.
+// static int lastIndexOfSubList(List<?> list,
+//                                         List<?> sublist) - searches the last occurrence of sublist.
+// static <T> ArrayList<T> list(Enumeration<T> enum)        - returns array list with elements from enumeration.
+// static <T> T max(Collection<? extends T> c,
+//                              Comparator<? super T> comp) - returns max  element from collection, defined with comparator.
+// static <T extends Object & Comparable<? super T>> T max
+//                              (Collection<? extends T> c) - returns max element from SORTED collection.
+// static <T> T min(Collection<? extends T> c,
+//                              Comparator<? super T> comp) - returns min element from collection, defined with comparator.
+// static <T extends Object & Comparable<? super T>> T min
+//                              (Collection<? extends T> c) - returns min element from SORTED collection.
+// static <T> List<T> nCopies(int amount, T object)         - returns amount copies of object.
+// static <E> Set<E> newSetFromMap(Map<E, boolean> map)     - creates and returns set from map.
+// static <T> boolean replaceAll(List<T> list,
+//                                           T old, T new)  - replaces all occurrences of old object to new one.
+// static void reverse(List<T> list)                        - returns reversed list.
+// static <T> Comparator<T> reverseOrder(Comparator<T> c)   - returns reversed comparator.
+// static void rotate(List<T> list, int n)                  - shifts list to n steps.
+// static void shuffle(List<T> list, Random r)              - Randomly permutes the specified list using a default source of randomness.
+// static <T> Set<T> singleton(T object)                    - returns object in view of unchangeable set.
+// static <T> List<T> singletonList(T object)               - returns object in a view of unchangeable list.
+// static <K, V> Map<K, V> singletonMap(K k, V v)           - returns k-v in a view of unchangeable map.
+// static <T> void sort(List<T> list,
+//                              Comparator<? super T> comp) - sorts the elements of list according to comp.
+// static <T extends Comparable<? super T> void sort
+//                                           (List<T> list) - sorts elements of list.
+// static void swap(List<T> list, int index1, int index2)   - swaps elements according to indexes.
+// static <T> Collection<T> synchronizedCollection
+//                                      (Collection<T> c)   - Returns a synchronized (thread-safe) collection backed by the specified one.
+// static <T> List<T> synchronizedList(List<T> list)        - Returns a synchronized (thread-safe) list backed by the specified one.
+// synchronizedMap(Map<K,V> m)                              - Returns a synchronized (thread-safe) map backed by the specified one.
+// static <K, V> NavigableMap<K, V> synchronizedNavigableMap
+//                                  (NavigableMap<K, V> nm) - Returns a synchronized (thread-safe) Navigable map backed by the specified one
+// static <T> NavigableSet<T> synchronizedNavigableSet
+//                                     (NavigableSet<T> ns) - Returns a synchronized (thread-safe) Navigable set backed by the specified one
+// static <T> Set<T> synchronizedSet(Set<T> s)              - Returns a synchronized (thread-safe) set backed by the specified one
+// static <K, V> SortedMap<K, V> synchronizedSortedMap
+//                                     (SortedMap<K, V> sm) - Returns a synchronized (thread-safe) sorted map backed by the specified one
+// static <T> SortedSet<T> synchronizedSortedSet(Set<T> ss) - Returns a synchronized (thread-safe) sorted set backed by the specified one
+// static <T> Collection<T> unmodifiable Collection
+//                             (Collection <? extends T> c) - Returns an unchangeable collection backed by the specified one.
+//
+//----------------------------------------------------------------------------------------------------------------------
